@@ -1,4 +1,15 @@
 /* General Body Styling */
+@font-face {
+  font-family: 'Expose Regular';
+  src: url('../fonts/EXPOSE-REGULAR.OTF') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Expose Regular', sans-serif;
+}
+
 body {
   font-family: 'Expose Regular', sans-serif;
   color: #fff;
