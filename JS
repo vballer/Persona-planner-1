@@ -1,0 +1,65 @@
+let stats = {
+  knowledge: 0,
+  charm: 0,
+  guts: 0,
+  kindness: 0,
+  proficiency: 0
+};
+
+function addXP(stat) {
+  stats[stat] += 10;
+  const progressBar = document.getElementById(`${stat}-bar`);
+  const span = progressBar.nextElementSibling;
+  progressBar.value = stats[stat];
+  span.textContent = `${stats[stat]} XP`;
+
+  // Add animation for XP increase
+  const statItem = document.getElementById(stat);
+  statItem.classList.add('xp-increase');
+  
+  if (stats[stat] >= 100) {
+    // Reset XP if leveled up
+    alert(`${stat.charAt(0).toUpperCase() + stat.slice(1)} leveled up!`);
+    stats[stat] = 0;
+    progressBar.value = stats[stat];
+    span.textContent = `${stats[stat]} XP`;
+
+    // Show POINT UP!! animation and grow the star
+    const pointUp = document.getElementById("point-up");
+    const star = document.getElementById("rank-up-star");
+    pointUp.classList.remove("hidden");
+    star.classList.add("rank");
+
+    // Remove the animations after they finish
+    setTimeout(() => {
+      pointUp.classList.add("hidden");
+      star.classList.remove("rank");
+    }, 2000);
+  }
+
+  // Remove the xp increase effect after a delay
+  setTimeout(() => {
+    statItem.classList.remove('xp-increase');
+  }, 1000);
+}
+
+// Add the animation class for XP increase
+document.styleSheets[0].insertRule(`
+  .xp-increase {
+    animation: xpIncrease 0.6s ease-in-out;
+  }
+  @keyframes xpIncrease {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+`);
