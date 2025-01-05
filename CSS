@@ -1,0 +1,196 @@
+/* General Body Styling */
+body {
+  font-family: 'Expose Regular', sans-serif;
+  color: #fff;
+  background: linear-gradient(135deg, #000, #111);
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+}
+
+header {
+  background: #ff0313;
+  text-align: center;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+header h1 {
+  font-size: 7em; /* Slightly larger header */
+  color: #fff;
+  margin: 0;
+  letter-spacing: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+header h1 span:nth-child(odd) {
+  color: #000;
+}
+
+header h1 span:nth-child(even) {
+  color: #fff;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 2.5em;
+  font-family: 'Expose Regular', sans-serif;
+}
+
+nav a:hover {
+  color: #e30101;
+}
+
+section {
+  margin-top: 150px;
+  padding: 20px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #222, #333);
+}
+
+section h2 {
+  font-size: 4.5em;
+  margin-bottom: 10px; /* Brings the title closer to the text below */
+}
+
+section p {
+  font-size: 6em; /* Makes the "Interactive calendar" and "Inspired by Persona 5" text larger */
+}
+
+#stats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+#stats .stat-item {
+  margin-bottom: 20px;
+  font-size: 5em;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  transform: rotate(2deg);
+}
+
+#stats .stat-item:hover::before {
+  content: '';
+  position: absolute;
+  background-color: rgb(0, 255, 255); /* Opaque shadow */
+  height: 100%;
+  width: 80%;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%) skew(-15deg);
+  z-index: -1;
+}
+
+progress {
+  width: 800px; /* Longer progress bars */
+  height: 60px; /* Bigger progress bars */
+  border-radius: 6px;
+}
+
+progress::-webkit-progress-bar {
+  background: #292929;
+}
+
+progress::-webkit-progress-value {
+  background: #ff0000;
+}
+
+button {
+  background: #ff0313;
+  color: #fff;
+  border: none;
+  padding: 18px 36px; /* Slightly smaller buttons */
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 4em; /* Matches the rest of the font */
+  font-family: 'Expose Regular', sans-serif;
+  position: relative;
+  transition: transform 0.2s;
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 100%;
+  height: 100%;
+  background: rgb(255, 0, 0); /* Opaque shadow */
+  z-index: -1;
+  border-radius: 7px; /* Matches the button's shape */
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+#star-container {
+  position: relative;
+  margin-top: 50px;
+  text-align: center;
+}
+
+#rank-up-star {
+  width: 200px;
+  height: 200px;
+  background: url('../images/star.png') no-repeat center;
+  background-size: contain;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+#rank-up-star.rank {
+  transform: scale(1.1);
+}
+
+#point-up {
+  font-size: 12em;
+  color: #ffda00;
+  text-transform: uppercase;
+  animation: fadeInOut 2s ease-in-out forwards;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
